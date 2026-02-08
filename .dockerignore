@@ -1,0 +1,23 @@
+# Version control
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Misc
+*.md
+README.md
+.DS_Store
