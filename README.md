@@ -66,6 +66,12 @@ docker run --rm \
   cms_scraper:latest
 ```
 
+> **Note**: If you encounter a `PermissionError` on Linux, the container user may not have write access to the host directory. Run `chmod -R 777 working_directory` to fix this.
+
+### Daily Scheduling (Cron / Task Scheduler)
+
+This script is designed to run once per invocation and exit. To run it daily, schedule it with your system scheduler (cron on Linux/macOS or Task Scheduler on Windows). The schedule should execute the same command you use in the “Running the Scraper” section, and ensure the working directory and `.env` file are available to the job.
+
 
 
 ### Environment Variables (`.env`)
