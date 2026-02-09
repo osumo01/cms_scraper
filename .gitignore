@@ -43,9 +43,9 @@ venv.bak/
 Thumbs.db
 
 # Project specific - Ignore data files but keep directory structure
-working_directory/*/*.csv
-working_directory/*/*.json
-working_directory/*/*.log
-*.log
-*.csv
+# working_directory/*/*.csv
+# working_directory/*/*.json
+# working_directory/*/*.log
+# *.log
+# *.csv
 

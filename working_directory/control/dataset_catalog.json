@@ -1,0 +1,541 @@
+{
+    "datasets": {
+        "48nr-hqxx::distribution_1": {
+            "identifier": "48nr-hqxx",
+            "distribution_id": "48nr-hqxx::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Outpatient and Ambulatory Surgery Consumer Assessment of Healthcare Providers and Systems (OAS CAHPS) survey for ambulatory surgical centers - Facility",
+            "last_processed": "2026-02-09T05:09:46.787728+00:00",
+            "first_seen": "2026-02-09T05:04:45.593723+00:00"
+        },
+        "tf3h-mrrs::distribution_1": {
+            "identifier": "tf3h-mrrs",
+            "distribution_id": "tf3h-mrrs::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Outpatient and Ambulatory Surgery Consumer Assessment of Healthcare Providers and Systems (OAS CAHPS) survey for ambulatory surgical centers - National",
+            "last_processed": "2026-02-09T05:09:46.976030+00:00",
+            "first_seen": "2026-02-09T05:04:45.719023+00:00"
+        },
+        "wue8-3vwe::distribution_1": {
+            "identifier": "wue8-3vwe",
+            "distribution_id": "wue8-3vwe::distribution_1",
+            "last_modified": "2025-10-01",
+            "title": "Ambulatory Surgical Center Quality Measures - National",
+            "last_processed": "2026-02-09T05:09:47.003204+00:00",
+            "first_seen": "2026-02-09T05:04:45.780802+00:00"
+        },
+        "x663-bwbj::distribution_1": {
+            "identifier": "x663-bwbj",
+            "distribution_id": "x663-bwbj::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Outpatient and Ambulatory Surgery Consumer Assessment of Healthcare Providers and Systems (OAS CAHPS) survey for ambulatory surgical centers - State",
+            "last_processed": "2026-02-09T05:09:46.996238+00:00",
+            "first_seen": "2026-02-09T05:04:45.842849+00:00"
+        },
+        "tqkv-mgxq::distribution_1": {
+            "identifier": "tqkv-mgxq",
+            "distribution_id": "tqkv-mgxq::distribution_1",
+            "last_modified": "2025-01-08",
+            "title": "Comprehensive Care For Joint Replacement Model - Provider Data",
+            "last_processed": "2026-02-09T05:09:46.895981+00:00",
+            "first_seen": "2026-02-09T05:04:45.968231+00:00"
+        },
+        "qqw3-t4ie::distribution_1": {
+            "identifier": "qqw3-t4ie",
+            "distribution_id": "qqw3-t4ie::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Complications and Deaths - National",
+            "last_processed": "2026-02-09T05:09:47.031677+00:00",
+            "first_seen": "2026-02-09T05:04:46.180763+00:00"
+        },
+        "4jcv-atw7::distribution_1": {
+            "identifier": "4jcv-atw7",
+            "distribution_id": "4jcv-atw7::distribution_1",
+            "last_modified": "2025-10-01",
+            "title": "Ambulatory Surgical Center Quality Measures - Facility",
+            "last_processed": "2026-02-09T05:09:47.213663+00:00",
+            "first_seen": "2026-02-09T05:04:46.260346+00:00"
+        },
+        "bs2r-24vh::distribution_1": {
+            "identifier": "bs2r-24vh",
+            "distribution_id": "bs2r-24vh::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Complications and Deaths - State",
+            "last_processed": "2026-02-09T05:09:47.093313+00:00",
+            "first_seen": "2026-02-09T05:04:46.442807+00:00"
+        },
+        "xrgf-x36b::distribution_1": {
+            "identifier": "xrgf-x36b",
+            "distribution_id": "xrgf-x36b::distribution_1",
+            "last_modified": "2023-01-06",
+            "title": "Table 2: FY2021 Distribution of Net Change in Base Operating DRG Payment Amount",
+            "last_processed": "2026-02-09T05:09:47.192930+00:00",
+            "first_seen": "2026-02-09T05:04:46.656649+00:00"
+        },
+        "5gv4-jwyv::distribution_1": {
+            "identifier": "5gv4-jwyv",
+            "distribution_id": "5gv4-jwyv::distribution_1",
+            "last_modified": "2023-01-06",
+            "title": "Table 1: FY2021 Net Change in Base Operating DRG Payment Amount",
+            "last_processed": "2026-02-09T05:09:47.241503+00:00",
+            "first_seen": "2026-02-09T05:04:46.726410+00:00"
+        },
+        "u625-zae7::distribution_1": {
+            "identifier": "u625-zae7",
+            "distribution_id": "u625-zae7::distribution_1",
+            "last_modified": "2023-01-06",
+            "title": "Table 3: FY2021 Percent Change in Medicare Payments",
+            "last_processed": "2026-02-09T05:09:47.290572+00:00",
+            "first_seen": "2026-02-09T05:04:46.896659+00:00"
+        },
+        "vtqa-m4zn::distribution_1": {
+            "identifier": "vtqa-m4zn",
+            "distribution_id": "vtqa-m4zn::distribution_1",
+            "last_modified": "2023-01-06",
+            "title": "Table 4: FY2021 Value-Based Incentive Payment Amount",
+            "last_processed": "2026-02-09T05:09:47.472470+00:00",
+            "first_seen": "2026-02-09T05:04:46.977095+00:00"
+        },
+        "99ue-w85f::distribution_1": {
+            "identifier": "99ue-w85f",
+            "distribution_id": "99ue-w85f::distribution_1",
+            "last_modified": "2025-10-28",
+            "title": "Patient survey (HCAHPS) - National",
+            "last_processed": "2026-02-09T05:09:47.345397+00:00",
+            "first_seen": "2026-02-09T05:04:47.210392+00:00"
+        },
+        "muwa-iene::distribution_1": {
+            "identifier": "muwa-iene",
+            "distribution_id": "muwa-iene::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "CMS Medicare PSI-90 and component measures - six-digit estimate dataset",
+            "last_processed": "2026-02-09T05:09:50.356500+00:00",
+            "first_seen": "2026-02-09T05:04:47.392214+00:00"
+        },
+        "84jm-wiui::distribution_1": {
+            "identifier": "84jm-wiui",
+            "distribution_id": "84jm-wiui::distribution_1",
+            "last_modified": "2025-10-28",
+            "title": "Patient survey (HCAHPS) - State",
+            "last_processed": "2026-02-09T05:09:47.686035+00:00",
+            "first_seen": "2026-02-09T05:04:47.784739+00:00"
+        },
+        "yd3s-jyhd::distribution_1": {
+            "identifier": "yd3s-jyhd",
+            "distribution_id": "yd3s-jyhd::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Healthcare Associated Infections - National",
+            "last_processed": "2026-02-09T05:09:47.756249+00:00",
+            "first_seen": "2026-02-09T05:04:48.078896+00:00"
+        },
+        "k2ze-bqvw::distribution_1": {
+            "identifier": "k2ze-bqvw",
+            "distribution_id": "k2ze-bqvw::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Healthcare Associated Infections - State",
+            "last_processed": "2026-02-09T05:09:47.930260+00:00",
+            "first_seen": "2026-02-09T05:04:48.376312+00:00"
+        },
+        "ynj2-r877::distribution_1": {
+            "identifier": "ynj2-r877",
+            "distribution_id": "ynj2-r877::distribution_1",
+            "last_modified": "2025-10-20",
+            "title": "Complications and Deaths - Hospital",
+            "last_processed": "2026-02-09T05:09:50.198849+00:00",
+            "first_seen": "2026-02-09T05:04:48.904687+00:00"
+        },
+        "s5pj-hua3::distribution_1": {
+            "identifier": "s5pj-hua3",
+            "distribution_id": "s5pj-hua3::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Outpatient and Ambulatory Surgery Consumer Assessment of Healthcare Providers and Systems (OAS CAHPS) survey for hospital outpatient departments - National",
+            "last_processed": "2026-02-09T05:09:50.430764+00:00",
+            "first_seen": "2026-02-09T05:04:49.116745+00:00"
+        },
+        "6pfg-whmx::distribution_1": {
+            "identifier": "6pfg-whmx",
+            "distribution_id": "6pfg-whmx::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Outpatient and Ambulatory Surgery Consumer Assessment of Healthcare Providers and Systems (OAS CAHPS) survey for hospital outpatient departments - State",
+            "last_processed": "2026-02-09T05:09:50.422681+00:00",
+            "first_seen": "2026-02-09T05:04:49.382431+00:00"
+        },
+        "xubh-q36u::distribution_1": {
+            "identifier": "xubh-q36u",
+            "distribution_id": "xubh-q36u::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Hospital General Information",
+            "last_processed": "2026-02-09T05:09:50.897161+00:00",
+            "first_seen": "2026-02-09T05:04:50.196342+00:00"
+        },
+        "z8ax-x9j1::distribution_1": {
+            "identifier": "z8ax-x9j1",
+            "distribution_id": "z8ax-x9j1::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Complications and Unplanned Hospital Visits - PPS-Exempt Cancer Hospital - Hospital",
+            "last_processed": "2026-02-09T05:09:50.474267+00:00",
+            "first_seen": "2026-02-09T05:04:50.449501+00:00"
+        },
+        "jfnd-nl7s::distribution_1": {
+            "identifier": "jfnd-nl7s",
+            "distribution_id": "jfnd-nl7s::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Complications and Unplanned Hospital Visits - PPS-Exempt Cancer Hospital - National",
+            "last_processed": "2026-02-09T05:09:50.518416+00:00",
+            "first_seen": "2026-02-09T05:04:50.669675+00:00"
+        },
+        "axe7-s95e::distribution_1": {
+            "identifier": "axe7-s95e",
+            "distribution_id": "axe7-s95e::distribution_1",
+            "last_modified": "2025-10-01",
+            "title": "Ambulatory Surgical Center Quality Measures - State",
+            "last_processed": "2026-02-09T05:09:46.838983+00:00",
+            "first_seen": "2026-02-09T05:04:50.716124+00:00"
+        },
+        "5hk7-b79m::distribution_1": {
+            "identifier": "5hk7-b79m",
+            "distribution_id": "5hk7-b79m::distribution_1",
+            "last_modified": "2025-01-08",
+            "title": "Medicare Spending Per Beneficiary - Hospital Additional Decimal Places",
+            "last_processed": "2026-02-09T05:09:50.697714+00:00",
+            "first_seen": "2026-02-09T05:04:51.084386+00:00"
+        },
+        "yq43-i98g::distribution_1": {
+            "identifier": "yq43-i98g",
+            "distribution_id": "yq43-i98g::distribution_1",
+            "last_modified": "2025-01-08",
+            "title": "Hospital-Acquired Condition (HAC) Reduction Program",
+            "last_processed": "2026-02-09T05:09:50.625925+00:00",
+            "first_seen": "2026-02-09T05:04:51.390862+00:00"
+        },
+        "k653-4ka8::distribution_1": {
+            "identifier": "k653-4ka8",
+            "distribution_id": "k653-4ka8::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Safety and Healthcare-Associated Infection Measures - PPS-Exempt Cancer Hospital",
+            "last_processed": "2026-02-09T05:09:50.801074+00:00",
+            "first_seen": "2026-02-09T05:04:51.440001+00:00"
+        },
+        "9g7e-btyt::distribution_1": {
+            "identifier": "9g7e-btyt",
+            "distribution_id": "9g7e-btyt::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Patient Survey (PCH - HCAHPS) PPS-Exempt Cancer Hospital - National",
+            "last_processed": "2026-02-09T05:09:51.112488+00:00",
+            "first_seen": "2026-02-09T05:04:51.674858+00:00"
+        },
+        "iy27-wz37::distribution_1": {
+            "identifier": "iy27-wz37",
+            "distribution_id": "iy27-wz37::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Patient Survey (PCH - HCAHPS) PPS-Exempt Cancer Hospital - Hospital",
+            "last_processed": "2026-02-09T05:09:50.946557+00:00",
+            "first_seen": "2026-02-09T05:04:51.893956+00:00"
+        },
+        "qatj-nmws::distribution_1": {
+            "identifier": "qatj-nmws",
+            "distribution_id": "qatj-nmws::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Patient Survey (PCH - HCAHPS) PPS-Exempt Cancer Hospital - State",
+            "last_processed": "2026-02-09T05:09:51.081310+00:00",
+            "first_seen": "2026-02-09T05:04:52.370926+00:00"
+        },
+        "9n3s-kdb3::distribution_1": {
+            "identifier": "9n3s-kdb3",
+            "distribution_id": "9n3s-kdb3::distribution_1",
+            "last_modified": "2025-01-08",
+            "title": "Hospital Readmissions Reduction Program",
+            "last_processed": "2026-02-09T05:09:51.351726+00:00",
+            "first_seen": "2026-02-09T05:04:53.592286+00:00"
+        },
+        "pudb-wetr::distribution_1": {
+            "identifier": "pudb-wetr",
+            "distribution_id": "pudb-wetr::distribution_1",
+            "last_modified": "2025-01-17",
+            "title": "Hospital Value-Based Purchasing (HVBP) - Clinical Outcomes Domain Scores",
+            "last_processed": "2026-02-09T05:09:51.970958+00:00",
+            "first_seen": "2026-02-09T05:04:53.893405+00:00"
+        },
+        "su9h-3pvj::distribution_1": {
+            "identifier": "su9h-3pvj",
+            "distribution_id": "su9h-3pvj::distribution_1",
+            "last_modified": "2025-01-17",
+            "title": "Hospital Value-Based Purchasing (HVBP) - Efficiency Scores",
+            "last_processed": "2026-02-09T05:09:51.615865+00:00",
+            "first_seen": "2026-02-09T05:04:54.143824+00:00"
+        },
+        "77hc-ibv8::distribution_1": {
+            "identifier": "77hc-ibv8",
+            "distribution_id": "77hc-ibv8::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Healthcare Associated Infections - Hospital",
+            "last_processed": "2026-02-09T05:09:59.959264+00:00",
+            "first_seen": "2026-02-09T05:04:54.291219+00:00"
+        },
+        "avtz-f2ge::distribution_1": {
+            "identifier": "avtz-f2ge",
+            "distribution_id": "avtz-f2ge::distribution_1",
+            "last_modified": "2025-01-17",
+            "title": "Hospital Value-Based Purchasing (HVBP) - Person and Community Engagement Domain Scores (HCAHPS)",
+            "last_processed": "2026-02-09T05:09:52.473980+00:00",
+            "first_seen": "2026-02-09T05:04:54.724006+00:00"
+        },
+        "ypbt-wvdk::distribution_1": {
+            "identifier": "ypbt-wvdk",
+            "distribution_id": "ypbt-wvdk::distribution_1",
+            "last_modified": "2025-01-17",
+            "title": "Hospital Value-Based Purchasing (HVBP) - Total Performance Score",
+            "last_processed": "2026-02-09T05:09:52.884741+00:00",
+            "first_seen": "2026-02-09T05:04:54.882692+00:00"
+        },
+        "dgmq-aat3::distribution_1": {
+            "identifier": "dgmq-aat3",
+            "distribution_id": "dgmq-aat3::distribution_1",
+            "last_modified": "2025-01-17",
+            "title": "Hospital Value-Based Purchasing (HVBP) - Safety",
+            "last_processed": "2026-02-09T05:09:52.972891+00:00",
+            "first_seen": "2026-02-09T05:04:55.091669+00:00"
+        },
+        "s5xg-sys6::distribution_1": {
+            "identifier": "s5xg-sys6",
+            "distribution_id": "s5xg-sys6::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Inpatient Psychiatric Facility Quality Measure Data - National",
+            "last_processed": "2026-02-09T05:09:53.055511+00:00",
+            "first_seen": "2026-02-09T05:04:55.125945+00:00"
+        },
+        "dc76-gh7x::distribution_1": {
+            "identifier": "dc76-gh7x",
+            "distribution_id": "dc76-gh7x::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Inpatient Psychiatric Facility Quality Measure Data - by State",
+            "last_processed": "2026-02-09T05:09:53.146656+00:00",
+            "first_seen": "2026-02-09T05:04:55.363003+00:00"
+        },
+        "4j6d-yzce::distribution_1": {
+            "identifier": "4j6d-yzce",
+            "distribution_id": "4j6d-yzce::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Measure Dates",
+            "last_processed": "2026-02-09T05:09:53.224395+00:00",
+            "first_seen": "2026-02-09T05:04:55.386953+00:00"
+        },
+        "q9vs-r7wp::distribution_1": {
+            "identifier": "q9vs-r7wp",
+            "distribution_id": "q9vs-r7wp::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Inpatient Psychiatric Facility Quality Measure Data - by Facility",
+            "last_processed": "2026-02-09T05:09:53.939097+00:00",
+            "first_seen": "2026-02-09T05:04:55.568095+00:00"
+        },
+        "3n5g-6b7f::distribution_1": {
+            "identifier": "3n5g-6b7f",
+            "distribution_id": "3n5g-6b7f::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Medicare Spending Per Beneficiary - National",
+            "last_processed": "2026-02-09T05:09:54.952158+00:00",
+            "first_seen": "2026-02-09T05:04:55.810870+00:00"
+        },
+        "yizn-abxn::distribution_1": {
+            "identifier": "yizn-abxn",
+            "distribution_id": "yizn-abxn::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Outpatient and Ambulatory Surgery Consumer Assessment of Healthcare Providers and Systems (OAS CAHPS) survey for hospital outpatient departments - Facility",
+            "last_processed": "2026-02-09T05:09:56.355653+00:00",
+            "first_seen": "2026-02-09T05:04:55.818063+00:00"
+        },
+        "rrqw-56er::distribution_1": {
+            "identifier": "rrqw-56er",
+            "distribution_id": "rrqw-56er::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Medicare Spending Per Beneficiary - Hospital",
+            "last_processed": "2026-02-09T05:09:54.874824+00:00",
+            "first_seen": "2026-02-09T05:04:55.893520+00:00"
+        },
+        "rs6n-9qwg::distribution_1": {
+            "identifier": "rs6n-9qwg",
+            "distribution_id": "rs6n-9qwg::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Medicare Spending Per Beneficiary - State",
+            "last_processed": "2026-02-09T05:09:55.205120+00:00",
+            "first_seen": "2026-02-09T05:04:56.047853+00:00"
+        },
+        "di9i-zzrc::distribution_1": {
+            "identifier": "di9i-zzrc",
+            "distribution_id": "di9i-zzrc::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Outpatient Imaging Efficiency - National",
+            "last_processed": "2026-02-09T05:09:56.615938+00:00",
+            "first_seen": "2026-02-09T05:04:56.140043+00:00"
+        },
+        "if5v-4x48::distribution_1": {
+            "identifier": "if5v-4x48",
+            "distribution_id": "if5v-4x48::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Outpatient Imaging Efficiency - State",
+            "last_processed": "2026-02-09T05:09:56.855517+00:00",
+            "first_seen": "2026-02-09T05:04:56.293188+00:00"
+        },
+        "isrn-hqyy::distribution_1": {
+            "identifier": "isrn-hqyy",
+            "distribution_id": "isrn-hqyy::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Timely and Effective Care - National",
+            "last_processed": "2026-02-09T05:09:57.332904+00:00",
+            "first_seen": "2026-02-09T05:04:56.567858+00:00"
+        },
+        "nrth-mfg3::distribution_1": {
+            "identifier": "nrth-mfg3",
+            "distribution_id": "nrth-mfg3::distribution_1",
+            "last_modified": "2025-01-08",
+            "title": "Medicare Hospital Spending by Claim",
+            "last_processed": "2026-02-09T05:09:59.021345+00:00",
+            "first_seen": "2026-02-09T05:04:56.836323+00:00"
+        },
+        "apyc-v239::distribution_1": {
+            "identifier": "apyc-v239",
+            "distribution_id": "apyc-v239::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Timely and Effective Care - State",
+            "last_processed": "2026-02-09T05:09:57.652899+00:00",
+            "first_seen": "2026-02-09T05:04:56.978708+00:00"
+        },
+        "wkfw-kthe::distribution_1": {
+            "identifier": "wkfw-kthe",
+            "distribution_id": "wkfw-kthe::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Outpatient Imaging Efficiency - Hospital",
+            "last_processed": "2026-02-09T05:09:57.241982+00:00",
+            "first_seen": "2026-02-09T05:04:57.069005+00:00"
+        },
+        "cvcs-xecj::distribution_1": {
+            "identifier": "cvcs-xecj",
+            "distribution_id": "cvcs-xecj::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Unplanned Hospital Visits - National",
+            "last_processed": "2026-02-09T05:09:59.248676+00:00",
+            "first_seen": "2026-02-09T05:04:57.196878+00:00"
+        },
+        "4gkm-5ypv::distribution_1": {
+            "identifier": "4gkm-5ypv",
+            "distribution_id": "4gkm-5ypv::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Unplanned Hospital Visits - State",
+            "last_processed": "2026-02-09T05:09:59.574747+00:00",
+            "first_seen": "2026-02-09T05:04:57.311857+00:00"
+        },
+        "6qxe-iqz8::distribution_1": {
+            "identifier": "6qxe-iqz8",
+            "distribution_id": "6qxe-iqz8::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Veterans Health Administration Behavioral Health Data",
+            "last_processed": "2026-02-09T05:09:59.907966+00:00",
+            "first_seen": "2026-02-09T05:04:57.548038+00:00"
+        },
+        "ptds-r8im::distribution_1": {
+            "identifier": "ptds-r8im",
+            "distribution_id": "ptds-r8im::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Veterans Health Administration Timely and Effective Care Data",
+            "last_processed": "2026-02-09T05:10:00.200370+00:00",
+            "first_seen": "2026-02-09T05:04:57.700710+00:00"
+        },
+        "uyx4-5s7f::distribution_1": {
+            "identifier": "uyx4-5s7f",
+            "distribution_id": "uyx4-5s7f::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Veterans Health Administration Provider Level Data",
+            "last_processed": "2026-02-09T05:10:00.020776+00:00",
+            "first_seen": "2026-02-09T05:04:57.814376+00:00"
+        },
+        "mxtu-43qs::distribution_1": {
+            "identifier": "mxtu-43qs",
+            "distribution_id": "mxtu-43qs::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Patient-Reported Outcomes - Hospital",
+            "last_processed": "2026-02-09T05:10:01.061801+00:00",
+            "first_seen": "2026-02-09T05:04:59.172616+00:00"
+        },
+        "qoeg-w7ck::distribution_1": {
+            "identifier": "qoeg-w7ck",
+            "distribution_id": "qoeg-w7ck::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Palliative Care - PPS-Exempt Cancer Hospital - Hospital",
+            "last_processed": "2026-02-09T05:10:00.690464+00:00",
+            "first_seen": "2026-02-09T05:04:59.443673+00:00"
+        },
+        "qigt-w5cx::distribution_1": {
+            "identifier": "qigt-w5cx",
+            "distribution_id": "qigt-w5cx::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Palliative Care - PPS-Exempt Cancer Hospital - National",
+            "last_processed": "2026-02-09T05:10:00.757136+00:00",
+            "first_seen": "2026-02-09T05:04:59.694896+00:00"
+        },
+        "nrdb-3fcy::distribution_1": {
+            "identifier": "nrdb-3fcy",
+            "distribution_id": "nrdb-3fcy::distribution_1",
+            "last_modified": "2025-10-22",
+            "title": "Maternal Health - Hospital",
+            "last_processed": "2026-02-09T05:10:00.619403+00:00",
+            "first_seen": "2026-02-09T05:05:00.488226+00:00"
+        },
+        "f4ga-b9gx::distribution_1": {
+            "identifier": "f4ga-b9gx",
+            "distribution_id": "f4ga-b9gx::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Promoting Interoperability - Hospital",
+            "last_processed": "2026-02-09T05:10:01.245022+00:00",
+            "first_seen": "2026-02-09T05:05:00.531099+00:00"
+        },
+        "hbf-map::distribution_1": {
+            "identifier": "hbf-map",
+            "distribution_id": "hbf-map::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Birthing Friendly Hospitals with Geocoded Addresses",
+            "last_processed": "2026-02-09T05:10:01.299857+00:00",
+            "first_seen": "2026-02-09T05:05:00.874253+00:00"
+        },
+        "97xg-v3wv::distribution_1": {
+            "identifier": "97xg-v3wv",
+            "distribution_id": "97xg-v3wv::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Rural Emergency Hospitals Timely and Effective Care - Hospital",
+            "last_processed": "2026-02-09T05:10:01.333792+00:00",
+            "first_seen": "2026-02-09T05:05:00.923168+00:00"
+        },
+        "d2k3-k3ac::distribution_1": {
+            "identifier": "d2k3-k3ac",
+            "distribution_id": "d2k3-k3ac::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Rural Emergency Hospitals Timely and Effective Care - National",
+            "last_processed": "2026-02-09T05:10:01.354462+00:00",
+            "first_seen": "2026-02-09T05:05:01.147831+00:00"
+        },
+        "yv7e-xc69::distribution_1": {
+            "identifier": "yv7e-xc69",
+            "distribution_id": "yv7e-xc69::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Timely and Effective Care - Hospital",
+            "last_processed": "2026-02-09T05:10:04.182001+00:00",
+            "first_seen": "2026-02-09T05:05:04.022540+00:00"
+        },
+        "632h-zaca::distribution_1": {
+            "identifier": "632h-zaca",
+            "distribution_id": "632h-zaca::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Unplanned Hospital Visits - Hospital",
+            "last_processed": "2026-02-09T05:10:02.352289+00:00",
+            "first_seen": "2026-02-09T05:05:05.423002+00:00"
+        },
+        "dgck-syfz::distribution_1": {
+            "identifier": "dgck-syfz",
+            "distribution_id": "dgck-syfz::distribution_1",
+            "last_modified": "2025-10-14",
+            "title": "Patient survey (HCAHPS) - Hospital",
+            "last_processed": "2026-02-09T05:10:11.520067+00:00",
+            "first_seen": "2026-02-09T05:05:10.370243+00:00"
+        }
+    },
+    "last_run": "2026-02-09T05:10:11.521100+00:00"
+}
