@@ -8,6 +8,12 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     APP_HOME=/cms_scraper
 
+# Application configuration with defaults (override via docker run -e or K8s env)
+ENV CMS_API_URL=https://data.cms.gov/provider-data/api/1/metastore/schemas/dataset/items \
+    MAX_WORKERS=5 \
+    WORKING_DIR=working_directory \
+    LOG_LEVEL=INFO
+
 # Set the working directory
 WORKDIR $APP_HOME
 
@@ -23,9 +29,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN useradd -m -r appuser && \
     chown -R appuser:appuser $APP_HOME
 
-# Copy requirements first for better caching (if it exists)
-# COPY requirements.txt .
-# RUN pip install --no-cache-dir -r requirements.txt
+# Copy requirements first for better caching
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code
 COPY --chown=appuser:appuser . .
@@ -34,4 +40,4 @@ COPY --chown=appuser:appuser . .
 USER appuser
 
 # Define the default command
-CMD ["python", "--version"]
+CMD ["python", "scripts/python_scripts/cms_metastore_extractor.py"]

@@ -1,0 +1,6 @@
+# Business Logic Configuration
+# This file contains configuration related to application behavior, not environment settings
+
+# Theme/Keyword filters for CMS datasets
+theme_filter:
+  - "Hospitals"
