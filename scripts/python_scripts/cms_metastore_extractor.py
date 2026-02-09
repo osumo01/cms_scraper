@@ -3,7 +3,7 @@ import csv
 import logging
 import requests
 import concurrent.futures
-from datetime import datetime
+from datetime import datetime, timezone
 from dotenv import load_dotenv
 from utils import to_snake_case, load_config, load_state, save_state, get_required_env, configure_logging, build_session, detect_csv_dialect
 
@@ -33,7 +33,7 @@ OUTPUT_DIR = os.path.join(WORKING_DIR, "output")     # Processed data
 CONTROL_DIR = os.path.join(WORKING_DIR, "control")   # State/Metadata
 LOG_DIR = os.path.join(WORKING_DIR, "logging")       # Logs
 
-STATE_FILE = os.path.join(CONTROL_DIR, "state.json")
+STATE_FILE = os.path.join(CONTROL_DIR, "dataset_catalog.json")
 
 # Business logic configuration from YAML
 CONFIG_PATH = os.path.join(os.path.dirname(BASE_DIR), "config", "meta_store.yaml")
@@ -89,15 +89,17 @@ def _get_csv_distributions(dataset):
     return csv_distributions
 
 def _build_dist_suffix(dist, index):
-    candidate = dist.get("identifier") or dist.get("title") or dist.get("name")
-    if candidate:
-        return to_snake_case(candidate)
     return f"distribution_{index}"
 
-def _build_file_stem(identifier, dist_suffix):
+def _build_file_stem(identifier, title, dist_suffix):
+    candidate_title = to_snake_case(title)
+    if len(candidate_title) > 50:
+        candidate_title = candidate_title[:50]
+        
+    stem = f"{candidate_title}_{identifier}"
     if dist_suffix:
-        return f"{identifier}_{dist_suffix}"
-    return identifier
+        return f"{stem}_{dist_suffix}"
+    return stem
 
 def process_dataset(dataset, state, session):
     """
@@ -123,7 +125,7 @@ def process_dataset(dataset, state, session):
     for index, dist in enumerate(csv_distributions, start=1):
         dist_suffix = _build_dist_suffix(dist, index)
         state_key = f"{identifier}::{dist_suffix}"
-        file_stem = _build_file_stem(identifier, dist_suffix)
+        file_stem = _build_file_stem(identifier, title, dist_suffix)
         output_filename = os.path.join(OUTPUT_DIR, f"{file_stem}.csv")
         if last_modified and state_datasets.get(state_key) == last_modified and os.path.exists(output_filename):
             continue
@@ -142,8 +144,9 @@ def process_dataset(dataset, state, session):
 
         dist_suffix = _build_dist_suffix(dist, index)
         state_key = f"{identifier}::{dist_suffix}"
-        file_stem = _build_file_stem(identifier, dist_suffix)
+        file_stem = _build_file_stem(identifier, title, dist_suffix)
         raw_filename = os.path.join(LANDING_DIR, f"{file_stem}.csv")
+
         output_filename = os.path.join(OUTPUT_DIR, f"{file_stem}.csv")
 
         if last_modified and state_datasets.get(state_key) == last_modified and os.path.exists(output_filename):
@@ -156,7 +159,15 @@ def process_dataset(dataset, state, session):
             continue
 
         logging.info("Successfully processed %s -> %s", identifier, output_filename)
-        processed.append((state_key, last_modified))
+        current_time = datetime.now(timezone.utc).isoformat()
+        processed.append({
+            "identifier": identifier,
+            "distribution_id": state_key,
+            "last_modified": last_modified,
+            "title": title,
+            "last_processed": current_time,
+            # 'first_seen' will be handled in run_job to preserve existing values
+        })
 
     return processed if processed else None
 
@@ -226,15 +237,24 @@ def run_job():
                 continue
 
             if result:
-                for state_key, modified_date in result:
-                    if modified_date:
-                        state["datasets"][state_key] = modified_date
+                for entry in result:
+                    state_key = entry['distribution_id']
+                    
+                    # Preserve 'first_seen' if it existed in old state
+                    old_entry = state["datasets"].get(state_key)
+                    if isinstance(old_entry, dict) and 'first_seen' in old_entry:
+                        entry['first_seen'] = old_entry['first_seen']
+                    else:
+                        entry['first_seen'] = entry['last_processed']
+                    
+                    # Update catalog
+                    state["datasets"][state_key] = entry
                     updates_count += 1
                 
     # 4. Commit Phase
     if updates_count > 0:
         save_state(state, STATE_FILE, CONTROL_DIR)
-        logging.info("Job completed. Updated %d datasets.", updates_count)
+        logging.info("Job completed. Updated %d distributions.", updates_count)
     else:
         logging.info("Job completed. No new updates found.")
 
