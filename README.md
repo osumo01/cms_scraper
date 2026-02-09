@@ -140,7 +140,7 @@ working_directory/
 ```
 
 - **`dataset_catalog.json`**: A comprehensive catalog tracking the metadata (title, last modified date, first seen date) of all processed datasets.
-- **Output Files**: Named descriptively as `{snake_case_title}_{id}.csv` (e.g., `hospital_general_information_xubh-q36u.csv`).
+- **Output Files**: Named as `{dataset_id}_{distribution}.csv` when multiple CSV distributions exist, otherwise `{dataset_id}.csv`.
 
 ---
 

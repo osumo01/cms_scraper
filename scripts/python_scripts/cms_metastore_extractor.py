@@ -3,7 +3,7 @@ import csv
 import logging
 import requests
 import concurrent.futures
-from datetime import datetime, timezone
+from datetime import datetime
 from dotenv import load_dotenv
 from utils import to_snake_case, load_config, load_state, save_state, get_required_env, configure_logging, build_session, detect_csv_dialect
 
@@ -30,10 +30,10 @@ WORKING_DIR = os.path.join(PROJECT_ROOT, WORKING_DIR_NAME) if not os.path.isabs(
 # Define sub-directories for the ETL pipeline
 LANDING_DIR = os.path.join(WORKING_DIR, "landing")   # Raw data
 OUTPUT_DIR = os.path.join(WORKING_DIR, "output")     # Processed data
-CONTROL_DIR = os.path.join(WORKING_DIR, "control")   # State/Metadata/Catalog
+CONTROL_DIR = os.path.join(WORKING_DIR, "control")   # State/Metadata
 LOG_DIR = os.path.join(WORKING_DIR, "logging")       # Logs
 
-STATE_FILE = os.path.join(CONTROL_DIR, "dataset_catalog.json")
+STATE_FILE = os.path.join(CONTROL_DIR, "state.json")
 
 # Business logic configuration from YAML
 CONFIG_PATH = os.path.join(os.path.dirname(BASE_DIR), "config", "meta_store.yaml")
@@ -78,92 +78,92 @@ def transform_data(input_path, output_path):
         logging.error("Error transforming %s: %s", input_path, e)
         return False
 
-def process_dataset(dataset, state, session):
-    """
-    Orchestrate download and transformation of a single dataset.
-    Returns metadata dict on success, None otherwise.
-    """
-    identifier = dataset.get('identifier')
-    title = dataset.get('title', identifier)
-    modified_date = dataset.get('modified')
-
-    if not identifier:
-        return None
-
-    # 1. Check State
-    # State structure can be old (string date) or new (dict with metadata)
-    saved_state = state.get("datasets", {}).get(identifier)
-    last_processed_date = None
-    
-    if isinstance(saved_state, dict):
-        last_processed_date = saved_state.get('last_modified')
-    else:
-        last_processed_date = saved_state  # Legacy format
-        
-    # Incremental check: if modified date matches state, skip
-    if last_processed_date and modified_date == last_processed_date:
-        # Construct expected filename to check existence
-        sanitized_title = to_snake_case(title)
-        if len(sanitized_title) > 50: sanitized_title = sanitized_title[:50]
-        expected_filename = os.path.join(OUTPUT_DIR, f"{sanitized_title}_{identifier}.csv")
-        
-        if os.path.exists(expected_filename):
-            logging.info("Skipping '%s' (%s) - Already up to date.", title, identifier)
-            return None
-
-    # 2. Determine Filenames
-    # Use snake_case title for better readability: "Hospital Info" -> "hospital_info"
-    # Filename format: {sanitized_title}_{id}.csv
-    sanitized_title = to_snake_case(title)
-    # Truncate title if too long to avoid filesystem issues
-    if len(sanitized_title) > 50:
-        sanitized_title = sanitized_title[:50]
-        
-    filename = f"{sanitized_title}_{identifier}.csv"
-    
-    landing_path = os.path.join(LANDING_DIR, filename)
-    output_path = os.path.join(OUTPUT_DIR, filename)
-
-    # Find the CSV distribution
-    csv_url = None
+def _get_csv_distributions(dataset):
+    csv_distributions = []
     for dist in dataset.get('distribution', []):
         media_type = (dist.get('mediaType') or "").lower()
         download_url = dist.get('downloadURL') or ""
         format_hint = (dist.get('format') or "").lower()
         if media_type == 'text/csv' or format_hint == "csv" or download_url.lower().endswith(".csv"):
-            csv_url = download_url
-            break
-            
-    if not csv_url:
-        print(f"Skipping '{title}' ({identifier}) - No CSV distribution found.")
+            csv_distributions.append(dist)
+    return csv_distributions
+
+def _build_dist_suffix(dist, index):
+    candidate = dist.get("identifier") or dist.get("title") or dist.get("name")
+    if candidate:
+        return to_snake_case(candidate)
+    return f"distribution_{index}"
+
+def _build_file_stem(identifier, dist_suffix):
+    if dist_suffix:
+        return f"{identifier}_{dist_suffix}"
+    return identifier
+
+def process_dataset(dataset, state, session):
+    """
+    Orchestrate download and transformation of a single dataset.
+    Returns list of (state_key, modified_date) for processed files.
+    """
+    identifier = dataset.get('identifier')
+    last_modified = dataset.get('modified')
+    title = dataset.get('title', identifier)
+
+    if not identifier:
+        return None
+
+    state_datasets = state.get("datasets", {})
+
+    csv_distributions = _get_csv_distributions(dataset)
+    if not csv_distributions:
+        logging.info("Skipping '%s' (%s) - No CSV distribution found.", title, identifier)
+        return None
+
+    processed = []
+    all_up_to_date = True
+    for index, dist in enumerate(csv_distributions, start=1):
+        dist_suffix = _build_dist_suffix(dist, index)
+        state_key = f"{identifier}::{dist_suffix}"
+        file_stem = _build_file_stem(identifier, dist_suffix)
+        output_filename = os.path.join(OUTPUT_DIR, f"{file_stem}.csv")
+        if last_modified and state_datasets.get(state_key) == last_modified and os.path.exists(output_filename):
+            continue
+        all_up_to_date = False
+
+    if all_up_to_date:
+        logging.info("Skipping '%s' (%s) - Already up to date.", title, identifier)
         return None
 
     logging.info("Processing '%s' (%s)...", title, identifier)
 
-    # 3. Download RAW data to Landing
-    if not download_data(session, csv_url, landing_path):
-        return None
-    
-    # 4. Transform Phase (Read from Landing -> Process -> Save to Output)
-    if not transform_data(landing_path, output_path):
-        return None
+    for index, dist in enumerate(csv_distributions, start=1):
+        csv_url = dist.get('downloadURL') or ""
+        if not csv_url:
+            continue
 
-    logging.info("Successfully processed %s -> %s", identifier, output_path)
-    
-    # Return enriched metadata
-    current_time = datetime.now(timezone.utc).isoformat()
-    return {
-        "identifier": identifier,
-        "last_modified": modified_date,
-        "title": title,
-        "first_seen": current_time, # Will be preserved if already exists in run_job
-        "last_processed": current_time
-    }
+        dist_suffix = _build_dist_suffix(dist, index)
+        state_key = f"{identifier}::{dist_suffix}"
+        file_stem = _build_file_stem(identifier, dist_suffix)
+        raw_filename = os.path.join(LANDING_DIR, f"{file_stem}.csv")
+        output_filename = os.path.join(OUTPUT_DIR, f"{file_stem}.csv")
+
+        if last_modified and state_datasets.get(state_key) == last_modified and os.path.exists(output_filename):
+            continue
+
+        if not download_data(session, csv_url, raw_filename):
+            continue
+
+        if not transform_data(raw_filename, output_filename):
+            continue
+
+        logging.info("Successfully processed %s -> %s", identifier, output_filename)
+        processed.append((state_key, last_modified))
+
+    return processed if processed else None
 
 def run_job():
     """Main job execution function."""
     logging.info("Starting CMS Data Extraction Job...")
-    session = build_session()
+    session = build_session()    
     
     # 1. Discovery Phase
     try:
@@ -226,16 +226,10 @@ def run_job():
                 continue
 
             if result:
-                identifier = result['identifier']
-                
-                # Preserve 'first_seen' if it existed in old state
-                old_entry = state["datasets"].get(identifier)
-                if isinstance(old_entry, dict) and 'first_seen' in old_entry:
-                    result['first_seen'] = old_entry['first_seen']
-                
-                # Update catalog
-                state["datasets"][identifier] = result
-                updates_count += 1
+                for state_key, modified_date in result:
+                    if modified_date:
+                        state["datasets"][state_key] = modified_date
+                    updates_count += 1
                 
     # 4. Commit Phase
     if updates_count > 0:
@@ -246,6 +240,4 @@ def run_job():
 
 if __name__ == "__main__":
     configure_logging(LOG_DIR, LOG_LEVEL)
-    logging.info("Starting CMS Metastore Extractor...")
     run_job()
-    logging.info("Job execution completed.")
